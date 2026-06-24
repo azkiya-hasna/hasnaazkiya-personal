@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Hasna Azkiya Nurkamila</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --ivory:   #FAF8F5;
+      --navy:    #1A1F2E;
+      --navy-mid:#2C3347;
+      --rose:    #C8919A;
+      --rose-lt: #E8C5CA;
+      --gold:    #C9A84C;
+      --gold-lt: #E8D49A;
+      --muted:   #7A7F8E;
+      --border:  #E4E0D8;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--ivory);
+      color: var(--navy);
+      line-height: 1.6;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 1.2rem 4rem;
+      background: rgba(250,248,245,0.95);
+      backdrop-filter: blur(8px);
+      box-shadow: 0 1px 0 var(--border);
+    }
+    .nav-logo {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.3rem; font-weight: 500;
+      color: var(--navy);
+      text-decoration: none;
+    }
+    .nav-links { display: flex; gap: 2rem; list-style: none; }
+    .nav-links a {
+      font-size: 0.78rem; font-weight: 500; letter-spacing: 0.08em;
+      text-transform: uppercase; text-decoration: none;
+      color: var(--muted);
+      transition: color 0.3s;
+    }
+    .nav-links a:hover { color: var(--rose); }
+
+    /* ── HERO ── */
+    .hero {
+      min-height: calc(100vh - 70px);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 3rem;
+      padding: 4rem 6rem;
+      background: var(--ivory);
+    }
+    .hero-left {
+      display: flex; flex-direction: column;
+      max-width: 480px;
+    }
+    .hero-eyebrow {
+      font-size: 0.7rem; font-weight: 600; letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--rose);
+      margin-bottom: 1.2rem;
+    }
+    .hero-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2.8rem, 4.5vw, 4.2rem);
+      font-weight: 300; line-height: 1.08;
+      color: var(--navy);
+      margin-bottom: 1.2rem;
+    }
+    .hero-name em { font-style: italic; color: var(--rose); }
+    .hero-divider {
+      width: 40px; height: 2px;
+      background: var(--gold);
+      margin-bottom: 1.2rem;
+    }
+    .hero-tagline {
+      font-size: 0.93rem; font-weight: 300; line-height: 1.8;
+      color: var(--muted);
+      margin-bottom: 2.5rem;
+    }
+    .hero-cta {
+      display: inline-block;
+      padding: 0.8rem 2rem;
+      background: var(--rose);
+      color: white;
+      font-size: 0.75rem; font-weight: 500; letter-spacing: 0.1em;
+      text-transform: uppercase; text-decoration: none;
+      border-radius: 2rem;
+      align-self: flex-start;
+      transition: background 0.3s, transform 0.2s;
+    }
+    .hero-cta:hover { background: var(--navy); transform: translateY(-1px); }
+
+    /* circle photo */
+    .hero-right {
+      flex-shrink: 0;
+    }
+    .hero-photo-wrap {
+      width: 340px; height: 340px;
+      border-radius: 50%;
+      overflow: hidden;
+      border: 6px solid white;
+      box-shadow: 0 20px 60px rgba(26,31,46,0.12);
+    }
+    .hero-photo-wrap img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      object-position: center top;
+      display: block;
+    }
+
+    /* ── SECTION BASE ── */
+    section { padding: 7rem 4rem; }
+    .section-label {
+      font-size: 0.65rem; font-weight: 600; letter-spacing: 0.18em;
+      text-transform: uppercase; color: var(--rose);
+      margin-bottom: 1rem;
+    }
+    .section-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 400; line-height: 1.15;
+      color: var(--navy);
+      margin-bottom: 1.5rem;
+    }
+    .section-body {
+      font-size: 0.93rem; color: var(--muted);
+      line-height: 1.8; max-width: 560px;
+    }
+
+    /* ── ABOUT ── */
+    #about {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 6rem;
+      align-items: start;
+      background: var(--ivory);
+    }
+    .about-stats {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem;
+    }
+    .stat-card {
+      padding: 2rem 1.5rem;
+      background: white;
+      border: 1px solid var(--border);
+    }
+    .stat-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2.6rem; font-weight: 300;
+      color: var(--navy);
+      line-height: 1;
+    }
+    .stat-num span { color: var(--rose); }
+    .stat-label {
+      font-size: 0.75rem; color: var(--muted);
+      letter-spacing: 0.04em; margin-top: 0.5rem;
+      line-height: 1.5;
+    }
+    .about-tags {
+      display: flex; flex-wrap: wrap; gap: 0.5rem;
+      margin-top: 2rem;
+    }
+    .tag {
+      padding: 0.35rem 0.9rem;
+      border: 1px solid var(--border);
+      font-size: 0.72rem; color: var(--muted);
+      letter-spacing: 0.05em;
+    }
+
+    /* ── PORTFOLIO ── */
+    #portfolio { background: var(--navy); }
+    #portfolio .section-title { color: var(--ivory); }
+    #portfolio .section-body { color: rgba(250,248,245,0.55); }
+    #portfolio .section-label { color: var(--gold); }
+
+    .portfolio-link {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 2rem 0;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+      text-decoration: none;
+      color: var(--ivory);
+      transition: padding-left 0.3s;
+    }
+    .portfolio-link:first-of-type { border-top: 1px solid rgba(255,255,255,0.08); margin-top: 3rem; }
+    .portfolio-link:hover { padding-left: 1rem; }
+    .portfolio-link:hover .pf-arrow { color: var(--gold); }
+    .pf-type { font-size: 0.65rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--muted); margin-bottom: 0.3rem; }
+    .pf-name { font-family: 'Cormorant Garamond', serif; font-size: 1.6rem; font-weight: 400; }
+    .pf-desc { font-size: 0.82rem; color: rgba(250,248,245,0.45); margin-top: 0.2rem; }
+    .pf-arrow { font-size: 1.2rem; color: rgba(250,248,245,0.2); transition: color 0.3s; flex-shrink: 0; margin-left: 2rem; }
+
+    /* ── EDUCATION ── */
+    #education { background: white; border-top: 1px solid var(--border); }
+    .edu-card {
+      display: grid; grid-template-columns: 130px 1fr;
+      gap: 0 2.5rem;
+      align-items: start;
+      padding: 2.5rem 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .edu-card:first-of-type { border-top: 1px solid var(--border); margin-top: 3rem; }
+    .edu-year {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1rem; font-weight: 300;
+      color: var(--muted);
+      padding-top: 0.2rem;
+    }
+    .edu-degree {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.4rem; font-weight: 500;
+      color: var(--navy); margin-bottom: 0.25rem;
+    }
+    .edu-school { font-size: 0.83rem; color: var(--muted); }
+    .edu-badge {
+      display: inline-block;
+      margin-top: 0.75rem;
+      padding: 0.3rem 0.85rem;
+      background: var(--navy);
+      color: var(--gold);
+      font-size: 0.68rem; font-weight: 600; letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    /* ── HOBBIES ── */
+    #hobbies { background: var(--ivory); }
+    .hobbies-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem; margin-top: 3rem;
+    }
+    .hobby-card {
+      padding: 2.5rem 2rem;
+      background: white;
+      border: 1px solid var(--border);
+      text-decoration: none; color: inherit;
+      transition: background 0.3s, border-color 0.3s;
+      display: flex; flex-direction: column; gap: 0.75rem;
+    }
+    .hobby-card:hover { background: var(--navy); border-color: var(--navy); }
+    .hobby-card:hover .hobby-title,
+    .hobby-card:hover .hobby-desc { color: var(--ivory); }
+    .hobby-card:hover .hobby-icon { filter: grayscale(1) brightness(3); }
+    .hobby-icon { font-size: 1.5rem; line-height: 1; }
+    .hobby-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.25rem; font-weight: 500;
+      color: var(--navy); transition: color 0.3s;
+    }
+    .hobby-desc {
+      font-size: 0.8rem; color: var(--muted);
+      line-height: 1.65; transition: color 0.3s;
+    }
+
+    /* ── GERMAN CTA ── */
+    #german {
+      background: linear-gradient(135deg, var(--navy) 0%, var(--navy-mid) 100%);
+      text-align: center;
+      padding: 8rem 4rem;
+    }
+    #german .section-label { color: var(--gold); display: block; }
+    #german .section-title { color: var(--ivory); margin: 0 auto 1.2rem; }
+    .german-desc {
+      color: rgba(250,248,245,0.6);
+      font-size: 0.93rem; line-height: 1.8;
+      max-width: 500px; margin: 0 auto 2.5rem;
+    }
+    .german-btn {
+      display: inline-block;
+      padding: 1rem 2.5rem;
+      background: var(--gold);
+      color: var(--navy);
+      font-size: 0.8rem; font-weight: 600; letter-spacing: 0.1em;
+      text-transform: uppercase; text-decoration: none;
+      transition: background 0.3s;
+    }
+    .german-btn:hover { background: var(--gold-lt); }
+    .german-lang-badge {
+      display: flex; justify-content: center; gap: 1rem;
+      flex-wrap: wrap;
+      margin-top: 2rem;
+    }
+    .lang-pill {
+      padding: 0.3rem 1rem;
+      border: 1px solid rgba(201,168,76,0.3);
+      color: var(--gold);
+      font-size: 0.68rem; letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--navy);
+      padding: 2.5rem 4rem;
+      display: flex; justify-content: space-between; align-items: center;
+      border-top: 1px solid rgba(255,255,255,0.06);
+    }
+    .footer-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1rem; color: rgba(250,248,245,0.4);
+    }
+    .footer-links { display: flex; gap: 1.5rem; }
+    .footer-links a {
+      font-size: 0.72rem; color: rgba(250,248,245,0.3);
+      text-decoration: none; letter-spacing: 0.08em;
+      text-transform: uppercase;
+      transition: color 0.3s;
+    }
+    .footer-links a:hover { color: var(--rose); }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 900px) {
+      .hero { flex-direction: column-reverse; align-items: center; text-align: center; padding: 6rem 2rem 4rem; }
+      .hero-left { align-items: center; }
+      .hero-cta { align-self: center; }
+      .hero-photo-wrap { width: 220px; height: 220px; }
+      #about { grid-template-columns: 1fr; gap: 3rem; }
+    }
+    @media (max-width: 768px) {
+      nav { padding: 1rem 1.5rem; }
+      .nav-links { gap: 1rem; }
+      .nav-links a { font-size: 0.68rem; }
+      section { padding: 5rem 1.5rem; }
+      .hobbies-grid { grid-template-columns: 1fr 1fr; }
+      footer { flex-direction: column; gap: 1rem; text-align: center; }
+    }
+    @media (max-width: 480px) {
+      .hobbies-grid { grid-template-columns: 1fr; }
+      .hero-photo-wrap { width: 180px; height: 180px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-logo">H.A.N.</a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#portfolio">Portfolio</a></li>
+    <li><a href="#education">Education</a></li>
+    <li><a href="#hobbies">Hobbies</a></li>
+    <li><a href="#german">German App</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-left">
+    <p class="hero-eyebrow">R&amp;D Engineer · Cimahi, Indonesia</p>
+    <h1 class="hero-name">Hasna<br/><em>Azkiya</em><br/>Nurkamila</h1>
+    <div class="hero-divider"></div>
+    <p class="hero-tagline">Mechatronics &amp; Automation Engineer, graduated Cum Laude from Polman Bandung. Curious about how things work — and how to make them work better.</p>
+    <a href="#about" class="hero-cta">Explore my work</a>
+  </div>
+  <div class="hero-right">
+    <div class="hero-photo-wrap">
+      <img src="profile.jpg" alt="Hasna Azkiya Nurkamila" />
+    </div>
+  </div>
+</div>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="about-text">
+    <p class="section-label">About</p>
+    <h2 class="section-title">Engineer by training,<br/>learner by nature.</h2>
+    <p class="section-body">
+      I work in Research &amp; Development at PT. Wiratama Sistem Integrasi, where I apply mechatronics and automation principles to real-world system integration. I enjoy building things from scratch — whether that's motor control firmware, a web app, or a new skill.
+    </p>
+    <div class="about-tags">
+      <span class="tag">Embedded Systems</span>
+      <span class="tag">ESP32</span>
+      <span class="tag">Motor Control</span>
+      <span class="tag">C / C++</span>
+      <span class="tag">Automation</span>
+      <span class="tag">R&amp;D</span>
+      <span class="tag">Web Development</span>
+      <span class="tag">German</span>
+    </div>
+  </div>
+  <div class="about-stats">
+    <div class="stat-card">
+      <div class="stat-num">S<span>.T.</span></div>
+      <div class="stat-label">Bachelor of Engineering<br/>Mechatronics &amp; Automation</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-num">Cum<span> ✦</span></div>
+      <div class="stat-label">Graduated with honors<br/>Cum Laude</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-num">R<span>&amp;D</span></div>
+      <div class="stat-label">Current role<br/>Wiratama Sistem Integrasi</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-num">DE<span> →</span></div>
+      <div class="stat-label">Learning German<br/>Actively self-studying</div>
+    </div>
+  </div>
+</section>
+
+<!-- PORTFOLIO -->
+<section id="portfolio">
+  <p class="section-label">Portfolio</p>
+  <h2 class="section-title" style="color:var(--ivory)">Selected work<br/>&amp; projects.</h2>
+  <p class="section-body">Engineering builds, automation experiments, and side projects — documented and shared.</p>
+
+  <a class="portfolio-link" href="https://bit.ly/hasna-azkiya-portfolio" target="_blank" rel="noopener">
+    <div class="pf-left">
+      <div class="pf-type">Full Portfolio</div>
+      <div class="pf-name">Engineering Projects</div>
+      <div class="pf-desc">DC motor control, encoder systems, automation &amp; integration work</div>
+    </div>
+    <span class="pf-arrow">→</span>
+  </a>
+
+  <a class="portfolio-link" href="https://netzwerk-neu-a1.vercel.app/" target="_blank" rel="noopener">
+    <div class="pf-left">
+      <div class="pf-type">Web Application</div>
+      <div class="pf-name">German Learning App</div>
+      <div class="pf-desc">Spaced-repetition flashcard system built from Netzwerk Neu A1 — SM-2 algorithm, speech synthesis, AI tutor</div>
+    </div>
+    <span class="pf-arrow">→</span>
+  </a>
+
+  <a class="portfolio-link" href="https://www.instagram.com/azkiyarchives/" target="_blank" rel="noopener">
+    <div class="pf-left">
+      <div class="pf-type">Creative</div>
+      <div class="pf-name">Azkiya Archives</div>
+      <div class="pf-desc">Bookstagram — reading notes, reviews, and literary visual essays on @azkiyarchives</div>
+    </div>
+    <span class="pf-arrow">→</span>
+  </a>
+</section>
+
+<!-- EDUCATION -->
+<section id="education">
+  <p class="section-label">Education</p>
+  <h2 class="section-title">Academic<br/>background.</h2>
+
+  <div class="edu-card">
+    <div class="edu-year">2019 – 2023</div>
+    <div class="edu-info">
+      <div class="edu-degree">D4 Mechatronics &amp; Automation Engineering</div>
+      <div class="edu-school">Politeknik Manufaktur Negeri Bandung (Polman Bandung) · Cimahi, West Java</div>
+      <div class="edu-badge">🏅 Cum Laude</div>
+    </div>
+  </div>
+</section>
+
+<!-- HOBBIES -->
+<section id="hobbies">
+  <p class="section-label">Hobbies &amp; Interests</p>
+  <h2 class="section-title">Life beyond<br/>the workbench.</h2>
+
+  <div class="hobbies-grid">
+    <a href="https://www.instagram.com/azkiyarchives/" target="_blank" class="hobby-card">
+      <div class="hobby-icon">📚</div>
+      <div class="hobby-title">Bookstagram</div>
+      <div class="hobby-desc">Reading, reviewing, and photographing books. A visual diary of literary exploration — follow along at @azkiyarchives.</div>
+    </a>
+    <div class="hobby-card">
+      <div class="hobby-icon">🌐</div>
+      <div class="hobby-title">Language Learning</div>
+      <div class="hobby-desc">Self-studying German with spaced-repetition, handwritten notes, and a flashcard app I built myself.</div>
+    </div>
+    <div class="hobby-card">
+      <div class="hobby-icon">🔧</div>
+      <div class="hobby-title">DIY Electronics</div>
+      <div class="hobby-desc">Tinkering with microcontrollers, motor drivers, and sensors outside of work hours — just for fun.</div>
+    </div>
+    <div class="hobby-card">
+      <div class="hobby-icon">✍️</div>
+      <div class="hobby-title">Writing &amp; Journaling</div>
+      <div class="hobby-desc">Capturing thoughts, learning notes, and reflections — in Indonesian, English, and slowly, in German.</div>
+    </div>
+    <div class="hobby-card">
+      <div class="hobby-icon">🎨</div>
+      <div class="hobby-title">Visual Aesthetics</div>
+      <div class="hobby-desc">An appreciation for clean design, thoughtful composition, and the way things look when they're made with care.</div>
+    </div>
+    <div class="hobby-card">
+      <div class="hobby-icon">🌱</div>
+      <div class="hobby-title">Continuous Learning</div>
+      <div class="hobby-desc">Picking up new skills deliberately — from embedded firmware to web development to foreign languages.</div>
+    </div>
+  </div>
+</section>
+
+<!-- GERMAN CTA -->
+<section id="german">
+  <p class="section-label">Featured Project</p>
+  <h2 class="section-title" style="max-width:500px; margin-left:auto; margin-right:auto;">A flashcard app<br/>I built to learn German.</h2>
+  <p class="german-desc">Built as a personal study tool — spaced repetition (SM-2), speech synthesis pronunciation, chapter-based quizzes, and an AI tutor chat. Open to anyone who wants to learn too.</p>
+  <a href="https://netzwerk-neu-a1.vercel.app/" target="_blank" rel="noopener" class="german-btn">Open the App →</a>
+  <div class="german-lang-badge">
+    <span class="lang-pill">Flashcards</span>
+    <span class="lang-pill">SM-2 Algorithm</span>
+    <span class="lang-pill">AI Tutor</span>
+    <span class="lang-pill">Netzwerk Neu A1</span>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-name">Hasna Azkiya Nurkamila · 2025</div>
+  <div class="footer-links">
+    <a href="https://bit.ly/hasna-azkiya-portfolio" target="_blank">Portfolio</a>
+    <a href="https://www.instagram.com/azkiyarchives/" target="_blank">Instagram</a>
+    <a href="https://netzwerk-neu-a1.vercel.app/" target="_blank">German App</a>
+  </div>
+</footer>
+
+</body>
+</html>
