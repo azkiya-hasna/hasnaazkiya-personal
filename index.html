@@ -267,7 +267,42 @@
       font-size: 0.68rem; font-weight: 600; letter-spacing: 0.1em;
       text-transform: uppercase;
     }
-
+  /* publication card */
+    .pub-card {
+      display: grid; grid-template-columns: 130px 1fr;
+      gap: 0 2.5rem;
+      align-items: start;
+      padding: 2.5rem 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .pub-label {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1rem; font-weight: 300;
+      color: var(--muted);
+      padding-top: 0.2rem;
+    }
+    .pub-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.35rem; font-weight: 500;
+      color: var(--navy);
+      line-height: 1.35;
+      margin-bottom: 0.4rem;
+    }
+    .pub-journal {
+      font-size: 0.82rem; color: var(--muted);
+      margin-bottom: 0.9rem;
+    }
+    .pub-link {
+      display: inline-flex; align-items: center; gap: 0.45rem;
+      padding: 0.4rem 1rem;
+      border: 1px solid var(--rose);
+      color: var(--rose);
+      font-size: 0.7rem; font-weight: 500; letter-spacing: 0.08em;
+      text-transform: uppercase; text-decoration: none;
+      transition: background 0.25s, color 0.25s;
+    }
+    .pub-link:hover { background: var(--rose); color: white; }
+    
     /* ── HOBBIES ── */
     #hobbies { background: var(--ivory); }
     .hobbies-grid {
